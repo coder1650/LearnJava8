@@ -1,5 +1,8 @@
 package com.zh.learn;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -60,5 +63,14 @@ public class LearnStream {
 		String str3 = null;
 		Optional.ofNullable(str2).ifPresent(System.out::println);
 	}
+	
+	@Test
+	public void streamReduce() throws Exception{
+		int a = Stream.of(1,3,5,7).reduce((x,y) -> x*y).get();
+		System.out.println(a);
+		System.err.println(URLDecoder.decode("RqPnCoPT3K9%252Fvwbh3InYy57gz3k%252BLNVHZbcrPhjonQ6iM3zME0IYYnQIgwBYS8J88VUG","UTF-8"));
+		System.out.println(URLEncoder.encode("RqPnCoPT3K9%2Fvwbh3InYy57gz3k%2BLNVHZbcrPhjonQ6iM3zME0IYYnQIgwBYS8J88VUG","utf-8"));
+	}
+	
 
 }
